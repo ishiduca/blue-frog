@@ -1,0 +1,32 @@
+{
+  "name": "blue-frog",
+  "description": "json-rpc 2.0 framework on node.js",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_PATH=lib tape t/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishiduca/blue-frog.git"
+  },
+  "keywords": [
+    "json-rpc",
+    "jsonrpc",
+    "jsonrpc2",
+    "json-rpc2"
+  ],
+  "author": "ishiduca@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ishiduca/blue-frog/issues"
+  },
+  "homepage": "https://github.com/ishiduca/blue-frog#readme",
+  "devDependencies": {
+    "tape": "^4.6.0"
+  },
+  "dependencies": {
+    "json-stringify-safe": "^5.0.1",
+    "xtend": "^4.0.1"
+  }
+}
