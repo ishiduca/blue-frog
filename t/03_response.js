@@ -1,6 +1,7 @@
 'use strict'
-const test = require('tape')
-const mod  = require('response')
+const test         = require('tape')
+const mod          = require('response')
+const JsonRpcError = require('error')
 
 test('create json-rpc-response-object', t => {
     const res = mod
@@ -24,11 +25,50 @@ test('creae json-rpc-response-error-object', t => {
     const err = mod.error
     t.ok(err, 'exists response.error')
 
-    t.deepEqual(err(123, {code: -32100, message: 'Parse Error'}), {jsonrpc: "2.0", id: 123, error: {code: -32100, message: 'Parse Error'}}, 'response.error(123, {code: -32100, message: "Parse Error"}) deepEqual {id: 123, error: {code: -32100, message: "Parse Error"}}')
-    t.deepEqual(err("pack", {code: -32100, message: 'Parse Error'}, "Error stack"), {jsonrpc: "2.0", id: "pack", error: {code: -32100, message: 'Parse Error', data: "Error stack"}}, 'response.error("pack", {code: -32100, message: "Parse Error"}, "Error stack") deepEqual {id: "pack", error: {code: -32100, message: "Parse Error", data: "Error stack"}}')
+    t.test('var err = response.error(id, {code: number, message: string, data: string_or_errorObj}) # string', tt => {
+        const hugaError = {code: -32610, message: 'Huga error', data: 'not found Huga'}
+        const error = err(123, hugaError)
+        tt.deepEqual(error, {jsonrpc: "2.0", id: 123, error: {code: -32610, message: 'Huga error', data: 'not found Huga'}}, 'error deepEqual {jsonrpc: "2.0", id: 123, error: {code: -32610, message: "Huga error", data: "not found Huga"}}')
+        const json = JSON.stringify(error)
+        console.log('# JSON.stringify(error)')
+        tt.ok(/"jsonrpc"\s*:\s*"2\.0"/.test(json), '/"jsonrpc"\s*:\s"2\\.0"/.test(json))')
+        tt.ok(/"id"\s*:\s*123/.test(json), '/"id"\s*:\s123/.test(json))')
+        tt.ok(/"error"\s*:\s*{[^}]*?"code"\s*:\s*-32610[^}]*?}/.test(json), '/"error"\s*:\s*{[^}]*?"code"\s*:\s*-32610[^}]*?}/.test(json))')
+        tt.ok(/"error"\s*:\s*{[^}]*?"message"\s*:\s*"Huga error"[^}]*?}/.test(json), '/"error"\s*:\s*{[^}]*?"message"\s*:\s*"Huga error"[^}]*?}/.test(json))')
+        tt.ok(/"error"\s*:\s*{[^}]*?"data"\s*:\s*"not found Huga"[^}]*?}/.test(json), '/"error"\s*:\s*{[^}]*?"data"\s*:\s*"not found Huga"[^}]*?}/.test(json))')
+        console.log('# %s', json)
+        tt.end()
+    })
 
-    var e = new Error('Parse Error'); e.code = -32100
-    t.deepEqual(err('foo', e), {jsonrpc: "2.0", id: "foo", error:{code: -32100, message: "Parse Error"}}, 'err("foo", e) deepEqual {jsonrpc: "2.0", id: "foo", error:{code: -32100, message: "Parse Error"}}')
+    t.test('var err = response.error(id, new JsonRpcError(string))', tt => {
+        const hugaError = new JsonRpcError(-32610, 'Huga error', 'Not Found Huga')
+        const error = err(123, hugaError)
+        tt.deepEqual(error, {jsonrpc: "2.0", id: 123, error: hugaError}, 'error deepEqual {jsonrpc: "2.0", id: 123, error: hugaError}')
+        const json = JSON.stringify(error)
+        console.log('# JSON.stringify(error)')
+        tt.ok(/"jsonrpc"\s*:\s*"2\.0"/.test(json), '/"jsonrpc"\s*:\s"2\\.0"/.test(json))')
+        tt.ok(/"id"\s*:\s*123/.test(json), '/"id"\s*:\s123/.test(json))')
+        tt.ok(/"error"\s*:\s*{[^}]*?"code"\s*:\s*-32610[^}]*?}/.test(json), '/"error"\s*:\s*{[^}]*?"code"\s*:\s*-32610[^}]*?}/.test(json))')
+        tt.ok(/"error"\s*:\s*{[^}]*?"message"\s*:\s*"Huga error"[^}]*?}/.test(json), '/"error"\s*:\s*{[^}]*?"message"\s*:\s*"Huga error"[^}]*?}/.test(json))')
+        tt.ok(/"error"\s*:\s*{[^}]*?"data"\s*:\s*"Not Found Huga"[^}]*?}/.test(json), '/"error"\s*:\s*{[^}]*?"data"\s*:\s*"Not Found Huga"[^}]*?}/.test(json))')
+        console.log('# %s', json)
+        tt.end()
+    })
+
+    t.test('var err = response.error(id, new JsonRpcError(errorObj))', tt => {
+        const hugaError = new JsonRpcError(-32610, 'Huga error', new Error('not found huga huga'))
+        const error = err(123, hugaError)
+        tt.deepEqual(error, {jsonrpc: "2.0", id: 123, error: hugaError}, 'error deepEqual {jsonrpc: "2.0", id: 123, error: hugaError}')
+        const json = JSON.stringify(error)
+        console.log('# JSON.stringify(error)')
+        tt.ok(/"jsonrpc"\s*:\s*"2\.0"/.test(json), '/"jsonrpc"\s*:\s"2\\.0"/.test(json))')
+        tt.ok(/"id"\s*:\s*123/.test(json), '/"id"\s*:\s123/.test(json))')
+        tt.ok(/"error"\s*:\s*{[^}]*?"code"\s*:\s*-32610[^}]*?}/.test(json), '/"error"\s*:\s*{[^}]*?"code"\s*:\s*-32610[^}]*?}/.test(json))')
+        tt.ok(/"error"\s*:\s*{[^}]*?"message"\s*:\s*"Huga error"[^}]*?}/.test(json), '/"error"\s*:\s*{[^}]*?"message"\s*:\s*"Huga error"[^}]*?}/.test(json))')
+        tt.ok(/"error"\s*:\s*{[^}]*?"data"\s*:\s*"\[?Error:\s*not found huga huga\]?"[^}]*?}/.test(json), '/"error"\\s*:\\s*{[^}]*?"data"\\s*:\\s*"\\[?Error:\\s*not found huga huga\\]?"[^}]*?}/.test(json))')
+        console.log('# %s', json)
+        tt.end()
+    })
 
     t.end()
 })

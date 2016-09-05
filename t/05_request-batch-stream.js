@@ -95,13 +95,12 @@ test('client -> server', t => {
             }))
             .pipe(hyp)
 
-        const arry = safe([req1, "invalid value", req2, {}, req3])
+        hyp.once('response', response => app.close())
 
-        hyp.once('response', response => {
+        hyp.once('finish', () => {
             t.is(errs.length, 2, 'batchStream emit error 3 times')
             t.ok(/not object/.test(errs[0].message), String(errs[0]))
             t.ok(/"jsonrpc" must be "2.0"/.test(errs[1].message), String(errs[1]))
-            app.close()
         })
 
         batch.write(req1)
