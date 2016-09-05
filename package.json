@@ -1,7 +1,7 @@
 {
   "name": "blue-frog",
   "description": "json-rpc 2.0 framework on node.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "index.js",
   "scripts": {
     "test": "NODE_PATH=lib tape t/*.js"
