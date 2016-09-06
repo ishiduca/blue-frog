@@ -1,0 +1,48 @@
+<!doctype html>
+<head>
+    <meta charset='utf-8' />
+    <title>BLUE FROG demo</title>
+</head>
+<body>
+    <h1>BLUE FROG demo</h1>
+    <form id="createAccount" action="javascript:void(0)">
+        <h2>create account</h2>
+        <dl>
+            <dt>name</dt>
+            <dd>
+                <input
+                    type="text"
+                    name="account_name"
+                    required
+                    autofocus
+                    placeholder="your name"
+                    pattern="[0-9A-Za-z\-.]{1,6}"
+                />
+            </dd>
+            <dt>password</dt>
+            <dd>
+                <input
+                    type="password"
+                    name="account_password"
+                    required
+                    placeholder="your password"
+                    pattern="[0-9A-Za-z\-.]{6,}"
+                />
+            </dd>
+            <dt>nick name</dt>
+            <dd>
+                <input
+                    type="text"
+                    name="account_nickname"
+                    placeholder="your nick name"
+                    pattern="[0-9A-Za-z\-.]{1,4}"
+                />
+            </dd>
+            <div>
+                <button type="submit">submit</button>
+            </div>
+        </dl>
+    </form>
+    <div id="result"></div>
+    <script src="/js/bundle.js"></script>
+</body>
