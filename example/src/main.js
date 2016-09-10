@@ -1,52 +1,51 @@
 'use strict'
-var hyperquest = require('hyperquest')
-var through    = require('through2')
-var body       = require('body/json')
-var rpc        = require('blue-frog')
-
+var client = require('./client')
 var d = document
 
 d.querySelector('#createAccount').onsubmit = function (ev) {
-    var uri = location.origin
-    var batch = rpc.request.BatchStream('do JSON stringify')
-    var hyp   = hyperquest.post(uri)
-
-    batch.on('error', onError)
-    .pipe(through.obj(function (json, _, done) {
-        hyp.setHeader('content-type', 'application/json')
-        hyp.setHeader('content-length', Buffer.byteLength(json))
-        done(null, json)
-    }))
-    .pipe(hyp).on('error', onError)
-    .once('response', function (res) {
-        body(res, null, function (err, response) {
-            if (err) return onError(err)
-
-            rpc.response.ParseStream(response).on('error', onError)
-            .pipe(through.obj(function (result, _, done) {
-                console.dir(result)
-                setTimeout(done, 500)
-            }))
-        })
-    })
+    var uri  = location.origin
+    var frog = client(uri)
 
     var $me = ev.target
     var $accountName = $me.querySelector('input[name="account_name"]')
     var $accountPwd  = $me.querySelector('input[name="account_password"]')
     var $accountNick = $me.querySelector('input[name="account_nickname"]')
 
-    batch.write(rpc.request(Date.now().toString(), 'createAccount', {
+    var req1 = frog.request('createAccount', {
         name:     $accountName.value.trim()
       , password: $accountPwd.value.trim()
-    }))
+    })
+
+    var req2
     if ($accountNick.value.trim()) {
-        batch.write(rpc.request.notification('addNickname', {
+        req2 = frog.notification('addNickname', {
             nickname: $accountNick.value.trim()
-        }))
+        })
     }
-    batch.end()
+
+    var req3 = frog.request('getAccount')
+
+    frog.on('error', onError)
+    req1.on('error', onError)
+    req2.on('error', onError)
+    req3.on('error', onError)
+
+    req1.once('data', function (result) {
+        console.log('# req1 result')
+        console.dir(result)
+    })
+    req3.once('data', function (result) {
+        console.log('# req3 result')
+        console.dir(result)
+    })
+
+    var arry = [req1]
+    if (req2) arry.push(req2)
+    arry.push(req3)
+
+    frog.batch(arry)
 }
 
 function onError (err) {
-    console.error(err)
+    console.log(err)
 }

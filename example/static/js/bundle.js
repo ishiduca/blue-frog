@@ -7358,7 +7358,7 @@ function _upper (str) {
     return str.slice(0,1).toUpperCase() + str.slice(1)
 }
 
-},{"inherits":66,"xtend":80}],44:[function(require,module,exports){
+},{"inherits":66,"xtend":84}],44:[function(require,module,exports){
 module.exports={
   "jsonrpc":"2.0",
   "response":{
@@ -7472,7 +7472,7 @@ function notification (method, _params) {
     return request(false, method, _params)
 }
 
-},{"./jsonrpc":44,"./validate":51,"xtend":80}],48:[function(require,module,exports){
+},{"./jsonrpc":44,"./validate":51,"xtend":84}],48:[function(require,module,exports){
 var stream   = require('readable-stream')
 var inherits = require('inherits')
 var safe     = require('json-stringify-safe')
@@ -8767,7 +8767,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":52,"./internal/streams/BufferList":57,"_process":11,"buffer":2,"buffer-shims":62,"core-util-is":65,"events":6,"inherits":66,"isarray":67,"process-nextick-args":69,"string_decoder/":77,"util":1}],55:[function(require,module,exports){
+},{"./_stream_duplex":52,"./internal/streams/BufferList":57,"_process":11,"buffer":2,"buffer-shims":62,"core-util-is":65,"events":6,"inherits":66,"isarray":67,"process-nextick-args":69,"string_decoder/":79,"util":1}],55:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -9477,7 +9477,7 @@ function CorkedRequest(state) {
   };
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":52,"_process":11,"buffer":2,"buffer-shims":62,"core-util-is":65,"events":6,"inherits":66,"process-nextick-args":69,"util-deprecate":79}],57:[function(require,module,exports){
+},{"./_stream_duplex":52,"_process":11,"buffer":2,"buffer-shims":62,"core-util-is":65,"events":6,"inherits":66,"process-nextick-args":69,"util-deprecate":81}],57:[function(require,module,exports){
 'use strict';
 
 var Buffer = require('buffer').Buffer;
@@ -9642,7 +9642,7 @@ function jsonBody(req, res, opts, callback) {
     })
 }
 
-},{"./index.js":59,"./parse-arguments.js":61,"safe-json-parse":76}],61:[function(require,module,exports){
+},{"./index.js":59,"./parse-arguments.js":61,"safe-json-parse":78}],61:[function(require,module,exports){
 module.exports = parseArguments
 
 function isWritable(stream) {
@@ -10206,9 +10206,11 @@ function makeError(message, type) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":11,"buffer":2,"bytes":63,"string_decoder/":77}],71:[function(require,module,exports){
+},{"_process":11,"buffer":2,"bytes":63,"string_decoder/":79}],71:[function(require,module,exports){
 arguments[4][52][0].apply(exports,arguments)
-},{"./_stream_readable":72,"./_stream_writable":74,"core-util-is":65,"dup":52,"inherits":66,"process-nextick-args":69}],72:[function(require,module,exports){
+},{"./_stream_readable":73,"./_stream_writable":75,"core-util-is":65,"dup":52,"inherits":66,"process-nextick-args":69}],72:[function(require,module,exports){
+arguments[4][53][0].apply(exports,arguments)
+},{"./_stream_transform":74,"core-util-is":65,"dup":53,"inherits":66}],73:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -11091,7 +11093,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":71,"_process":11,"buffer":2,"core-util-is":65,"events":6,"inherits":66,"isarray":67,"process-nextick-args":69,"string_decoder/":77,"util":1}],73:[function(require,module,exports){
+},{"./_stream_duplex":71,"_process":11,"buffer":2,"core-util-is":65,"events":6,"inherits":66,"isarray":67,"process-nextick-args":69,"string_decoder/":79,"util":1}],74:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -11272,7 +11274,7 @@ function done(stream, er) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":71,"core-util-is":65,"inherits":66}],74:[function(require,module,exports){
+},{"./_stream_duplex":71,"core-util-is":65,"inherits":66}],75:[function(require,module,exports){
 (function (process){
 // A bit simpler than readable streams.
 // Implement an async ._write(chunk, encoding, cb), and it'll handle all
@@ -11791,9 +11793,11 @@ function CorkedRequest(state) {
   };
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":71,"_process":11,"buffer":2,"core-util-is":65,"events":6,"inherits":66,"process-nextick-args":69,"util-deprecate":79}],75:[function(require,module,exports){
+},{"./_stream_duplex":71,"_process":11,"buffer":2,"core-util-is":65,"events":6,"inherits":66,"process-nextick-args":69,"util-deprecate":81}],76:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"./lib/_stream_duplex.js":71,"./lib/_stream_passthrough.js":72,"./lib/_stream_readable.js":73,"./lib/_stream_transform.js":74,"./lib/_stream_writable.js":75,"dup":26}],77:[function(require,module,exports){
 arguments[4][27][0].apply(exports,arguments)
-},{"./lib/_stream_transform.js":73,"dup":27}],76:[function(require,module,exports){
+},{"./lib/_stream_transform.js":74,"dup":27}],78:[function(require,module,exports){
 module.exports = SafeParse
 
 function SafeParse(obj, reviver, callback) {
@@ -11813,9 +11817,9 @@ function SafeParse(obj, reviver, callback) {
     callback(null, json)
 }
 
-},{}],77:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"buffer":2,"dup":36}],78:[function(require,module,exports){
+},{"buffer":2,"dup":36}],80:[function(require,module,exports){
 (function (process){
 var Transform = require('readable-stream/transform')
   , inherits  = require('util').inherits
@@ -11915,67 +11919,375 @@ module.exports.obj = through2(function (options, transform, flush) {
 })
 
 }).call(this,require('_process'))
-},{"_process":11,"readable-stream/transform":75,"util":40,"xtend":80}],79:[function(require,module,exports){
+},{"_process":11,"readable-stream/transform":77,"util":40,"xtend":84}],81:[function(require,module,exports){
 arguments[4][24][0].apply(exports,arguments)
-},{"dup":24}],80:[function(require,module,exports){
+},{"dup":24}],82:[function(require,module,exports){
+(function (global){
+
+var rng;
+
+if (global.crypto && crypto.getRandomValues) {
+  // WHATWG crypto-based RNG - http://wiki.whatwg.org/wiki/Crypto
+  // Moderately fast, high quality
+  var _rnds8 = new Uint8Array(16);
+  rng = function whatwgRNG() {
+    crypto.getRandomValues(_rnds8);
+    return _rnds8;
+  };
+}
+
+if (!rng) {
+  // Math.random()-based (RNG)
+  //
+  // If all else fails, use Math.random().  It's fast, but is of unspecified
+  // quality.
+  var  _rnds = new Array(16);
+  rng = function() {
+    for (var i = 0, r; i < 16; i++) {
+      if ((i & 0x03) === 0) r = Math.random() * 0x100000000;
+      _rnds[i] = r >>> ((i & 0x03) << 3) & 0xff;
+    }
+
+    return _rnds;
+  };
+}
+
+module.exports = rng;
+
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],83:[function(require,module,exports){
+//     uuid.js
+//
+//     Copyright (c) 2010-2012 Robert Kieffer
+//     MIT License - http://opensource.org/licenses/mit-license.php
+
+// Unique ID creation requires a high quality random # generator.  We feature
+// detect to determine the best RNG source, normalizing to a function that
+// returns 128-bits of randomness, since that's what's usually required
+var _rng = require('./rng');
+
+// Maps for number <-> hex string conversion
+var _byteToHex = [];
+var _hexToByte = {};
+for (var i = 0; i < 256; i++) {
+  _byteToHex[i] = (i + 0x100).toString(16).substr(1);
+  _hexToByte[_byteToHex[i]] = i;
+}
+
+// **`parse()` - Parse a UUID into it's component bytes**
+function parse(s, buf, offset) {
+  var i = (buf && offset) || 0, ii = 0;
+
+  buf = buf || [];
+  s.toLowerCase().replace(/[0-9a-f]{2}/g, function(oct) {
+    if (ii < 16) { // Don't overflow!
+      buf[i + ii++] = _hexToByte[oct];
+    }
+  });
+
+  // Zero out remaining bytes if string was short
+  while (ii < 16) {
+    buf[i + ii++] = 0;
+  }
+
+  return buf;
+}
+
+// **`unparse()` - Convert UUID byte array (ala parse()) into a string**
+function unparse(buf, offset) {
+  var i = offset || 0, bth = _byteToHex;
+  return  bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] + '-' +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]] +
+          bth[buf[i++]] + bth[buf[i++]];
+}
+
+// **`v1()` - Generate time-based UUID**
+//
+// Inspired by https://github.com/LiosK/UUID.js
+// and http://docs.python.org/library/uuid.html
+
+// random #'s we need to init node and clockseq
+var _seedBytes = _rng();
+
+// Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
+var _nodeId = [
+  _seedBytes[0] | 0x01,
+  _seedBytes[1], _seedBytes[2], _seedBytes[3], _seedBytes[4], _seedBytes[5]
+];
+
+// Per 4.2.2, randomize (14 bit) clockseq
+var _clockseq = (_seedBytes[6] << 8 | _seedBytes[7]) & 0x3fff;
+
+// Previous uuid creation time
+var _lastMSecs = 0, _lastNSecs = 0;
+
+// See https://github.com/broofa/node-uuid for API details
+function v1(options, buf, offset) {
+  var i = buf && offset || 0;
+  var b = buf || [];
+
+  options = options || {};
+
+  var clockseq = options.clockseq !== undefined ? options.clockseq : _clockseq;
+
+  // UUID timestamps are 100 nano-second units since the Gregorian epoch,
+  // (1582-10-15 00:00).  JSNumbers aren't precise enough for this, so
+  // time is handled internally as 'msecs' (integer milliseconds) and 'nsecs'
+  // (100-nanoseconds offset from msecs) since unix epoch, 1970-01-01 00:00.
+  var msecs = options.msecs !== undefined ? options.msecs : new Date().getTime();
+
+  // Per 4.2.1.2, use count of uuid's generated during the current clock
+  // cycle to simulate higher resolution clock
+  var nsecs = options.nsecs !== undefined ? options.nsecs : _lastNSecs + 1;
+
+  // Time since last uuid creation (in msecs)
+  var dt = (msecs - _lastMSecs) + (nsecs - _lastNSecs)/10000;
+
+  // Per 4.2.1.2, Bump clockseq on clock regression
+  if (dt < 0 && options.clockseq === undefined) {
+    clockseq = clockseq + 1 & 0x3fff;
+  }
+
+  // Reset nsecs if clock regresses (new clockseq) or we've moved onto a new
+  // time interval
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === undefined) {
+    nsecs = 0;
+  }
+
+  // Per 4.2.1.2 Throw error if too many uuids are requested
+  if (nsecs >= 10000) {
+    throw new Error('uuid.v1(): Can\'t create more than 10M uuids/sec');
+  }
+
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq;
+
+  // Per 4.1.4 - Convert from unix epoch to Gregorian epoch
+  msecs += 12219292800000;
+
+  // `time_low`
+  var tl = ((msecs & 0xfffffff) * 10000 + nsecs) % 0x100000000;
+  b[i++] = tl >>> 24 & 0xff;
+  b[i++] = tl >>> 16 & 0xff;
+  b[i++] = tl >>> 8 & 0xff;
+  b[i++] = tl & 0xff;
+
+  // `time_mid`
+  var tmh = (msecs / 0x100000000 * 10000) & 0xfffffff;
+  b[i++] = tmh >>> 8 & 0xff;
+  b[i++] = tmh & 0xff;
+
+  // `time_high_and_version`
+  b[i++] = tmh >>> 24 & 0xf | 0x10; // include version
+  b[i++] = tmh >>> 16 & 0xff;
+
+  // `clock_seq_hi_and_reserved` (Per 4.2.2 - include variant)
+  b[i++] = clockseq >>> 8 | 0x80;
+
+  // `clock_seq_low`
+  b[i++] = clockseq & 0xff;
+
+  // `node`
+  var node = options.node || _nodeId;
+  for (var n = 0; n < 6; n++) {
+    b[i + n] = node[n];
+  }
+
+  return buf ? buf : unparse(b);
+}
+
+// **`v4()` - Generate random UUID**
+
+// See https://github.com/broofa/node-uuid for API details
+function v4(options, buf, offset) {
+  // Deprecated - 'format' argument, as supported in v1.2
+  var i = buf && offset || 0;
+
+  if (typeof(options) == 'string') {
+    buf = options == 'binary' ? new Array(16) : null;
+    options = null;
+  }
+  options = options || {};
+
+  var rnds = options.random || (options.rng || _rng)();
+
+  // Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+  rnds[6] = (rnds[6] & 0x0f) | 0x40;
+  rnds[8] = (rnds[8] & 0x3f) | 0x80;
+
+  // Copy bytes to buffer, if provided
+  if (buf) {
+    for (var ii = 0; ii < 16; ii++) {
+      buf[i + ii] = rnds[ii];
+    }
+  }
+
+  return buf || unparse(rnds);
+}
+
+// Export public API
+var uuid = v4;
+uuid.v1 = v1;
+uuid.v4 = v4;
+uuid.parse = parse;
+uuid.unparse = unparse;
+
+module.exports = uuid;
+
+},{"./rng":82}],84:[function(require,module,exports){
 arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],81:[function(require,module,exports){
+},{"dup":41}],85:[function(require,module,exports){
 (function (Buffer){
 'use strict'
+var events     = require('events')
+var inherits   = require('inherits')
+var stream     = require('readable-stream')
 var hyperquest = require('hyperquest')
 var through    = require('through2')
 var body       = require('body/json')
+var uuid       = require('uuid')
 var rpc        = require('blue-frog')
 
-var d = document
+module.exports = BlueFrog
+module.exports.GreenFrog = GreenFrog
 
-d.querySelector('#createAccount').onsubmit = function (ev) {
-    var uri = location.origin
-    var batch = rpc.request.BatchStream('do JSON stringify')
-    var hyp   = hyperquest.post(uri)
+inherits(BlueFrog, events.EventEmitter)
 
-    batch.on('error', onError)
+function BlueFrog (uri) {
+    if (!(this instanceof BlueFrog)) return new BlueFrog(uri)
+
+    events.EventEmitter.call(this)
+
+    this.requests = {}
+    this.batchStream = new rpc.request.BatchStream('do JSON.stringify')
+
+    var client = hyperquest.post(uri)
+    var me = this
+
+    this.batchStream.on('error', onError)
     .pipe(through.obj(function (json, _, done) {
-        hyp.setHeader('content-type', 'application/json')
-        hyp.setHeader('content-length', Buffer.byteLength(json))
+        client.setHeader('content-type', 'application/json')
+        client.setHeader('content-length', Buffer.byteLength(json))
         done(null, json)
     }))
-    .pipe(hyp).on('error', onError)
+    .pipe(client).on('error', onError)
     .once('response', function (res) {
         body(res, null, function (err, response) {
             if (err) return onError(err)
-
             rpc.response.ParseStream(response).on('error', onError)
             .pipe(through.obj(function (result, _, done) {
-                console.dir(result)
-                setTimeout(done, 500)
+                var frog = me.requests[result.id]
+                if (frog) {
+                    if (result.error) frog.emit('error', result.error)
+                    frog.end(result.result)
+                }
+                done()
             }))
         })
     })
+
+    function onError (err) {
+        return me.emit('error', err)
+    }
+}
+
+BlueFrog.prototype._request = function (id, method, params) {
+    return new GreenFrog(id, method, params)
+}
+
+BlueFrog.prototype.request = function (method, params) {
+    return this._request(uuid.v4(), method, params)
+}
+BlueFrog.prototype.notification = function (method, params) {
+    return this._request(false, method, params)
+}
+BlueFrog.prototype.batch = function (arry) {
+    if (!Array.isArray(arry)) arry = arguments
+
+    for (var i = 0, frog, request; i < arry.length; i++) {
+        frog = arry[i]
+        request = frog.request
+        this.batchStream.write(request)
+        if (request.id) this.requests[request.id] = frog
+    }
+    this.batchStream.end()
+}
+
+inherits(GreenFrog, stream.Transform)
+
+function GreenFrog (id, method, params) {
+    if (!(this instanceof GreenFrog))
+        return new GreenFrog(id, method, params)
+    stream.Transform.call(this, {objectMode: true})
+    this.request = rpc.request(id, method, params)
+}
+
+GreenFrog.prototype._transform = function (res, _, done) {
+    done(null, res)
+}
+
+}).call(this,require("buffer").Buffer)
+},{"blue-frog":42,"body/json":60,"buffer":2,"events":6,"hyperquest":96,"inherits":66,"readable-stream":76,"through2":80,"uuid":83}],86:[function(require,module,exports){
+'use strict'
+var client = require('./client')
+var d = document
+
+d.querySelector('#createAccount').onsubmit = function (ev) {
+    var uri  = location.origin
+    var frog = new client(uri)
 
     var $me = ev.target
     var $accountName = $me.querySelector('input[name="account_name"]')
     var $accountPwd  = $me.querySelector('input[name="account_password"]')
     var $accountNick = $me.querySelector('input[name="account_nickname"]')
 
-    batch.write(rpc.request(Date.now().toString(), 'createAccount', {
+    var req1 = frog.request('createAccount', {
         name:     $accountName.value.trim()
       , password: $accountPwd.value.trim()
-    }))
+    })
+
+    var req2
     if ($accountNick.value.trim()) {
-        batch.write(rpc.request.notification('addNickname', {
+        req2 = frog.notification('addNickname', {
             nickname: $accountNick.value.trim()
-        }))
+        })
     }
-    batch.end()
+
+    var req3 = frog.request('getAccount')
+
+    frog.on('error', onError)
+    req1.on('error', onError)
+    req2.on('error', onError)
+    req3.on('error', onError)
+
+    req1.once('data', function (result) {
+        console.log('# req1 result')
+        console.dir(result)
+    })
+    req3.once('data', function (result) {
+        console.log('# req3 result')
+        console.dir(result)
+    })
+
+    var arry = [req1]
+    if (req2) arry.push(req2)
+    arry.push(req3)
+
+    frog.batch(arry)
 }
 
 function onError (err) {
-    console.error(err)
+    console.log(err)
 }
 
-}).call(this,require("buffer").Buffer)
-},{"blue-frog":42,"body/json":60,"buffer":2,"hyperquest":91,"through2":78}],82:[function(require,module,exports){
+},{"./client":85}],87:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -12086,7 +12398,7 @@ function objectToString(o) {
 }
 
 }).call(this,{"isBuffer":require("../../../../../.nodebrew/node/v4.2.3/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../../../../.nodebrew/node/v4.2.3/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":9}],83:[function(require,module,exports){
+},{"../../../../../.nodebrew/node/v4.2.3/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":9}],88:[function(require,module,exports){
 var stream = require("readable-stream");
 
 var duplex2 = module.exports = function duplex2(options, writable, readable) {
@@ -12150,9 +12462,9 @@ DuplexWrapper.prototype._read = function _read(n) {
   this._readable.resume();
 };
 
-},{"readable-stream":90}],84:[function(require,module,exports){
+},{"readable-stream":95}],89:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],85:[function(require,module,exports){
+},{"dup":10}],90:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -12245,7 +12557,7 @@ function forEach (xs, f) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_readable":87,"./_stream_writable":89,"_process":11,"core-util-is":82,"inherits":99}],86:[function(require,module,exports){
+},{"./_stream_readable":92,"./_stream_writable":94,"_process":11,"core-util-is":87,"inherits":104}],91:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -12293,7 +12605,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":88,"core-util-is":82,"inherits":99}],87:[function(require,module,exports){
+},{"./_stream_transform":93,"core-util-is":87,"inherits":104}],92:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -13248,7 +13560,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":85,"_process":11,"buffer":2,"core-util-is":82,"events":6,"inherits":99,"isarray":84,"stream":29,"string_decoder/":100,"util":1}],88:[function(require,module,exports){
+},{"./_stream_duplex":90,"_process":11,"buffer":2,"core-util-is":87,"events":6,"inherits":104,"isarray":89,"stream":29,"string_decoder/":105,"util":1}],93:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -13459,7 +13771,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":85,"core-util-is":82,"inherits":99}],89:[function(require,module,exports){
+},{"./_stream_duplex":90,"core-util-is":87,"inherits":104}],94:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -13940,7 +14252,7 @@ function endWritable(stream, state, cb) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":85,"_process":11,"buffer":2,"core-util-is":82,"inherits":99,"stream":29}],90:[function(require,module,exports){
+},{"./_stream_duplex":90,"_process":11,"buffer":2,"core-util-is":87,"inherits":104,"stream":29}],95:[function(require,module,exports){
 (function (process){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = require('stream');
@@ -13954,7 +14266,7 @@ if (!process.browser && process.env.READABLE_STREAM === 'disable') {
 }
 
 }).call(this,require('_process'))
-},{"./lib/_stream_duplex.js":85,"./lib/_stream_passthrough.js":86,"./lib/_stream_readable.js":87,"./lib/_stream_transform.js":88,"./lib/_stream_writable.js":89,"_process":11,"stream":29}],91:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":90,"./lib/_stream_passthrough.js":91,"./lib/_stream_readable.js":92,"./lib/_stream_transform.js":93,"./lib/_stream_writable.js":94,"_process":11,"stream":29}],96:[function(require,module,exports){
 (function (process,Buffer){
 var url = require('url');
 var http = require('http');
@@ -14109,11 +14421,11 @@ Req.prototype.setLocation = function (uri) {
 };
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":11,"buffer":2,"duplexer2":83,"http":30,"https":7,"through2":98,"url":37}],92:[function(require,module,exports){
+},{"_process":11,"buffer":2,"duplexer2":88,"http":30,"https":7,"through2":103,"url":37}],97:[function(require,module,exports){
 arguments[4][10][0].apply(exports,arguments)
-},{"dup":10}],93:[function(require,module,exports){
-arguments[4][85][0].apply(exports,arguments)
-},{"./_stream_readable":94,"./_stream_writable":96,"_process":11,"core-util-is":82,"dup":85,"inherits":99}],94:[function(require,module,exports){
+},{"dup":10}],98:[function(require,module,exports){
+arguments[4][90][0].apply(exports,arguments)
+},{"./_stream_readable":99,"./_stream_writable":101,"_process":11,"core-util-is":87,"dup":90,"inherits":104}],99:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -15099,7 +15411,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"_process":11,"buffer":2,"core-util-is":82,"events":6,"inherits":99,"isarray":92,"stream":29,"string_decoder/":100}],95:[function(require,module,exports){
+},{"_process":11,"buffer":2,"core-util-is":87,"events":6,"inherits":104,"isarray":97,"stream":29,"string_decoder/":105}],100:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -15311,7 +15623,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":93,"core-util-is":82,"inherits":99}],96:[function(require,module,exports){
+},{"./_stream_duplex":98,"core-util-is":87,"inherits":104}],101:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -15701,14 +16013,14 @@ function endWritable(stream, state, cb) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":93,"_process":11,"buffer":2,"core-util-is":82,"inherits":99,"stream":29}],97:[function(require,module,exports){
+},{"./_stream_duplex":98,"_process":11,"buffer":2,"core-util-is":87,"inherits":104,"stream":29}],102:[function(require,module,exports){
 arguments[4][27][0].apply(exports,arguments)
-},{"./lib/_stream_transform.js":95,"dup":27}],98:[function(require,module,exports){
-arguments[4][78][0].apply(exports,arguments)
-},{"_process":11,"dup":78,"readable-stream/transform":97,"util":40,"xtend":101}],99:[function(require,module,exports){
+},{"./lib/_stream_transform.js":100,"dup":27}],103:[function(require,module,exports){
+arguments[4][80][0].apply(exports,arguments)
+},{"_process":11,"dup":80,"readable-stream/transform":102,"util":40,"xtend":106}],104:[function(require,module,exports){
 arguments[4][8][0].apply(exports,arguments)
-},{"dup":8}],100:[function(require,module,exports){
+},{"dup":8}],105:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"buffer":2,"dup":36}],101:[function(require,module,exports){
+},{"buffer":2,"dup":36}],106:[function(require,module,exports){
 arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}]},{},[81]);
+},{"dup":41}]},{},[86]);
