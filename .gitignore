@@ -3,4 +3,4 @@ node_modules/
 *~
 npm-debug.log
 .DS_Store
-example/static/js/bundle.js
+bundle.js

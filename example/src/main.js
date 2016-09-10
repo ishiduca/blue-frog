@@ -27,7 +27,7 @@ d.querySelector('#createAccount').onsubmit = function (ev) {
 
     frog.on('error', onError)
     req1.on('error', onError)
-    req2.on('error', onError)
+    if (req2) req2.on('error', onError)
     req3.on('error', onError)
 
     req1.once('data', function (result) {
